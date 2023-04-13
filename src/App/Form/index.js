@@ -1,13 +1,27 @@
 import "./style.css";
 import { useState } from "react";
 import { currencies } from "../currencies";
+import { Result } from "./Result";
 
 const Form = () => {
     const [currency, setCurrency] = useState(currencies[0].short);
     const [amount, setAmount] = useState("");
+    const [result, setResult] = useState();
+
+    const calculateResult = (currency, amount) => {
+        const rate = currencies.find(({ short }) => short === currency).value;
+
+        setResult({
+            sourceAmount: +amount,
+            sourceRate: rate,
+            targetAmount: amount / rate,
+            currency,
+        });
+    };
 
     const onFormSubmit = (event) => {
         event.preventDefault();
+        calculateResult(currency, amount);
     };
 
     return (
@@ -50,13 +64,7 @@ const Form = () => {
                     </label>
                 </p>
                 <p>
-                    <label>
-                        <span className="form__labelText">Wynik:</span>
-                        <input
-                            className="form__field js-result"
-                            type="text"
-                        />
-                    </label>
+                    <Result result={result} />
                 </p>
                 <p className="form__additionalInformation">
                     * Pola obowiązkowe.<br />Przeliczono według kursu walut NBP z dnia:
