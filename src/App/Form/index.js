@@ -1,8 +1,9 @@
 import "./style.css";
 import { useState } from "react";
-
+import { currencies } from "../currencies";
 
 const Form = () => {
+    const [currency, setCurrency] = useState(currencies[0].short);
     const [amount, setAmount] = useState("");
 
     const onFormSubmit = (event) => {
@@ -34,7 +35,17 @@ const Form = () => {
                         <span className="form__labelText">Przelicz na:*</span>
                         <select
                             className="form__field"
+                            value={currency}
+                            onChange={({ target }) => setCurrency(target.value)}
                         >
+                            {currencies.map((currency => (
+                                <option
+                                    key={currency.short}
+                                    value={currency.short}
+                                >
+                                    {currency.name}
+                                </option>
+                            )))}
                         </select>
                     </label>
                 </p>
