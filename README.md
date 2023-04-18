@@ -1,4 +1,4 @@
-# Currency converter
+# Currency converter REACT
 
 ![Demo animation](https://raw.githubusercontent.com/MaciejUrny/currency-converter/main/img/md-animation.gif)
 
