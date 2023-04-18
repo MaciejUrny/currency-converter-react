@@ -4,7 +4,7 @@
 
 ## Demo
 
-https://maciejurny.github.io/currency-converter/
+https://maciejurny.github.io/currency-converter-react/
 
 ## Description
 
