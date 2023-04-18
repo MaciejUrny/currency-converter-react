@@ -1,6 +1,6 @@
 # Currency converter REACT
 
-![Demo animation](https://raw.githubusercontent.com/MaciejUrny/currency-converter-react/main/public/img/md-animation.gif)
+![Demo animation](./public/img/md-animation.gif)
 
 ## Demo
 
