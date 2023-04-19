@@ -1,7 +1,7 @@
 import "./style.css";
 
 export const Result = ({ result }) => (
-    <>
+    <p>
         {result !== undefined && (
             <div className="container">
                 {result.sourceAmount.toFixed(2)}&nbsp;PLN&nbsp;/&nbsp;
@@ -9,5 +9,5 @@ export const Result = ({ result }) => (
                 {result.targetAmount.toFixed(2)}&nbsp;{result.currency}
             </div>
         )}
-    </>
+    </p>
 );

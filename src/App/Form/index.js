@@ -63,9 +63,7 @@ const Form = () => {
                         </select>
                     </label>
                 </p>
-                <p>
-                    <Result result={result} />
-                </p>
+                <Result result={result} />
                 <p className="form__additionalInformation">
                     * Pola obowiązkowe.<br />Przeliczono według kursu walut NBP z dnia:
                     04.11.2022 r.
