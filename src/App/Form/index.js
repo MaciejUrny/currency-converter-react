@@ -29,8 +29,8 @@ const Form = () => {
             <fieldset className="form__fieldset">
                 <legend className="form__legend">Kalkulator walut</legend>
                 <p>
-                    <label
-                    ><span className="form__labelText">Kwota w zł [PLN]:*</span>
+                    <label>
+                        <span className="form__labelText">Kwota w zł [PLN]:*</span>
                         <input
                             className="form__field"
                             type="number"
