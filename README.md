@@ -1,6 +1,6 @@
 # Currency converter REACT
 
-![Demo animation](./public/img/md-animation.gif)
+![Demo animation](/md-animation.gif)
 
 ## Demo
 
