@@ -2,7 +2,7 @@ import "./style.css";
 
 export const Result = ({ result }) => (
     <p>
-        {result !== undefined && (
+        {result && (
             <div className="container">
                 {result.sourceAmount.toFixed(2)}&nbsp;PLN&nbsp;/&nbsp;
                 {result.sourceRate.toFixed(2)}&nbsp;=&nbsp;
