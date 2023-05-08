@@ -30,6 +30,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 - JavaScript
 - BEM
 - ES6+ Features
+- Styled Components
+- Custom Hook
 
 ## Available Scripts
 
