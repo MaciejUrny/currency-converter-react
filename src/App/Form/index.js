@@ -3,6 +3,16 @@ import { useState } from "react";
 import { currencies } from "../currencies";
 import { Result } from "./Result";
 import { Clock } from "./Clock";
+import {
+    FormComponents,
+    Fieldset,
+    AppTitle,
+    RowTitle,
+    InputField,
+    SelectField,
+    Information,
+    CalculateButton
+} from "./styled";
 
 const Form = () => {
     const [currency, setCurrency] = useState(currencies[0].short);
@@ -26,15 +36,14 @@ const Form = () => {
     };
 
     return (
-        <form className="form" onSubmit={onFormSubmit}>
-            <fieldset className="form__fieldset">
-                <legend className="form__legend">Kalkulator walut</legend>
+        <FormComponents onSubmit={onFormSubmit}>
+            <Fieldset>
+                <AppTitle className="form__legend">Kalkulator walut</AppTitle>
                 <Clock />
                 <p>
                     <label>
-                        <span className="form__labelText">Kwota w zł [PLN]:*</span>
-                        <input
-                            className="form__field"
+                        <RowTitle>Kwota w zł [PLN]:*</RowTitle>
+                        <InputField
                             type="number"
                             value={amount}
                             onChange={({ target }) => setAmount(target.value)}
@@ -48,9 +57,8 @@ const Form = () => {
                 </p>
                 <p>
                     <label>
-                        <span className="form__labelText">Przelicz na:*</span>
-                        <select
-                            className="form__field"
+                        <RowTitle>Przelicz na:*</RowTitle>
+                        <SelectField
                             value={currency}
                             onChange={({ target }) => setCurrency(target.value)}
                         >
@@ -62,17 +70,17 @@ const Form = () => {
                                     {currency.name}
                                 </option>
                             )))}
-                        </select>
+                        </SelectField>
                     </label>
                 </p>
                 <Result result={result} />
-                <p className="form__additionalInformation">
+                <Information>
                     * Pola obowiązkowe.<br />Przeliczono według kursu walut NBP z dnia:
                     04.11.2022 r.
-                </p>
-                <button className="form__button">Przelicz</button>
-            </fieldset>
-        </form>
+                </Information>
+                <CalculateButton>Przelicz</CalculateButton>
+            </Fieldset>
+        </FormComponents>
     )
 };
 
