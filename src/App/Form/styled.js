@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const FormComponents = styled.form`
+export const StyledForm = styled.form`
     padding: 40px 0;
 `;
 

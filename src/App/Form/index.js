@@ -3,7 +3,7 @@ import { currencies } from "../currencies";
 import { Result } from "./Result";
 import { Clock } from "./Clock";
 import {
-    FormComponents,
+    StyledForm,
     Fieldset,
     AppTitle,
     RowTitle,
@@ -35,7 +35,7 @@ const Form = () => {
     };
 
     return (
-        <FormComponents onSubmit={onFormSubmit}>
+        <StyledForm onSubmit={onFormSubmit}>
             <Fieldset>
                 <AppTitle className="form__legend">Kalkulator walut</AppTitle>
                 <Clock />
@@ -79,7 +79,7 @@ const Form = () => {
                 </Information>
                 <CalculateButton>Przelicz</CalculateButton>
             </Fieldset>
-        </FormComponents>
+        </StyledForm>
     )
 };
 
