@@ -35,16 +35,6 @@ export const InputField = styled.input`
     margin-top: 3px;
 `;
 
-export const SelectField = styled.select`
-    border-radius: 5px;
-    border: 1px solid ${({ theme }) => theme.color.crimson};
-    padding: 5px;
-    text-align: center;
-    max-width: 285px;
-    width: 100%;
-    margin-top: 3px;
-`;
-
 export const Information = styled.p`
     color: ${({ theme }) => theme.color.red};
     font-style: italic;

@@ -8,7 +8,6 @@ import {
     AppTitle,
     RowTitle,
     InputField,
-    SelectField,
     Information,
     CalculateButton
 } from "./styled";
@@ -57,7 +56,8 @@ const Form = () => {
                 <p>
                     <label>
                         <RowTitle>Przelicz na:*</RowTitle>
-                        <SelectField
+                        <InputField
+                            as="select"
                             value={currency}
                             onChange={({ target }) => setCurrency(target.value)}
                         >
@@ -69,7 +69,7 @@ const Form = () => {
                                     {currency.name}
                                 </option>
                             )))}
-                        </SelectField>
+                        </InputField>
                     </label>
                 </p>
                 <Result result={result} />
