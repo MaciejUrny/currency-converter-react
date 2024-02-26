@@ -88,8 +88,7 @@ const Form = () => {
                         </p>
                         <Result result={result} />
                         <Information>
-                            * Pola obowiązkowe.<br />Przeliczono według kursu walut NBP z dnia:
-                            04.11.2022 r.
+                            * Pola obowiązkowe.<br />Przeliczono według aktualnego kursu walut.
                         </Information>
                         <CalculateButton>Przelicz</CalculateButton>
                     </>
