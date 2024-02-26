@@ -8,18 +8,11 @@ https://maciejurny.github.io/currency-converter-react/
 
 ## Description
 
-A simple application that allows you to convert PLN into one of four currencies according to the exchange rate of the National Bank of Poland on November 4, 2022.
+A simple application that allows you to convert PLN into one of many currencies according to current rates.
 
 ## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-### Avaliable currencies:
-
-- EUR
-- USD
-- GBP
-- CHF
 
 ## Technologies and conventions used in the project:
 
@@ -32,6 +25,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 - ES6+ Features
 - Styled Components
 - Custom Hook
+- Download data from API
+- axios
 
 ## Available Scripts
 
