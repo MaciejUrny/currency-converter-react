@@ -11,19 +11,21 @@ import {
     Information,
     CalculateButton
 } from "./styled";
+import { useRateData } from "./useRatesData";
 
 const Form = () => {
     const [currency, setCurrency] = useState(currencies[0].short);
     const [amount, setAmount] = useState("");
     const [result, setResult] = useState(null);
+    const ratesData = useRateData();
 
     const calculateResult = (currency, amount) => {
-        const rate = currencies.find(({ short }) => short === currency).value;
+        const rate = ratesData.rates[currency].value;
 
         setResult({
             sourceAmount: +amount,
             sourceRate: rate,
-            targetAmount: amount / rate,
+            targetAmount: amount * rate,
             currency,
         });
     };
@@ -61,12 +63,12 @@ const Form = () => {
                             value={currency}
                             onChange={({ target }) => setCurrency(target.value)}
                         >
-                            {currencies.map((currency => (
+                            {ratesData.rates && Object.keys(ratesData.rates).map((currency => (
                                 <option
-                                    key={currency.short}
-                                    value={currency.short}
+                                    key={currency}
+                                    value={currency}
                                 >
-                                    {currency.name}
+                                    {currency}
                                 </option>
                             )))}
                         </InputField>
