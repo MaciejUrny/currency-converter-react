@@ -60,3 +60,15 @@ export const CalculateButton = styled.button`
         filter: brightness(90%)
     }
 `;
+
+export const Loading = styled.p`
+    color: ${({ theme }) => theme.color.teal};
+    text-align: center;
+    font-weight: bold;
+`;
+
+export const Failure = styled.p`
+    color: ${({ theme }) => theme.color.crimson};
+    text-align: center;
+    font-weight: bold;
+`;

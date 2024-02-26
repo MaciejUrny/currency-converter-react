@@ -9,7 +9,9 @@ import {
     RowTitle,
     InputField,
     Information,
-    CalculateButton
+    CalculateButton,
+    Loading,
+    Failure
 } from "./styled";
 import { useRateData } from "./useRatesData";
 
@@ -39,47 +41,59 @@ const Form = () => {
         <StyledForm onSubmit={onFormSubmit}>
             <Fieldset>
                 <AppTitle className="form__legend">Kalkulator walut</AppTitle>
-                <Clock />
-                <p>
-                    <label>
-                        <RowTitle>Kwota w zł [PLN]:*</RowTitle>
-                        <InputField
-                            type="number"
-                            value={amount}
-                            onChange={({ target }) => setAmount(target.value)}
-                            placeholder="Wpisz kwotę w zł"
-                            min="0"
-                            step="0.01"
-                            required
-                            autoFocus
-                        />
-                    </label>
-                </p>
-                <p>
-                    <label>
-                        <RowTitle>Przelicz na:*</RowTitle>
-                        <InputField
-                            as="select"
-                            value={currency}
-                            onChange={({ target }) => setCurrency(target.value)}
-                        >
-                            {ratesData.rates && Object.keys(ratesData.rates).map((currency => (
-                                <option
-                                    key={currency}
+                {ratesData.state === "loading" ? (
+                    <Loading>
+                        Ładuję kursy walut. Proszę czekać &#128513;
+                    </Loading>
+                ) : ratesData.state === "error" ? (
+                    <Failure>
+                        Wystąpił problem. Sprawdź swoje połączenie z internetem i spróbuj ponownie.
+                    </Failure>
+                ) : (
+                    <>
+                        <Clock />
+                        <p>
+                            <label>
+                                <RowTitle>Kwota w zł [PLN]:*</RowTitle>
+                                <InputField
+                                    type="number"
+                                    value={amount}
+                                    onChange={({ target }) => setAmount(target.value)}
+                                    placeholder="Wpisz kwotę w zł"
+                                    min="0"
+                                    step="0.01"
+                                    required
+                                    autoFocus
+                                />
+                            </label>
+                        </p>
+                        <p>
+                            <label>
+                                <RowTitle>Przelicz na:*</RowTitle>
+                                <InputField
+                                    as="select"
                                     value={currency}
+                                    onChange={({ target }) => setCurrency(target.value)}
                                 >
-                                    {currency}
-                                </option>
-                            )))}
-                        </InputField>
-                    </label>
-                </p>
-                <Result result={result} />
-                <Information>
-                    * Pola obowiązkowe.<br />Przeliczono według kursu walut NBP z dnia:
-                    04.11.2022 r.
-                </Information>
-                <CalculateButton>Przelicz</CalculateButton>
+                                    {ratesData.rates && Object.keys(ratesData.rates).map((currency => (
+                                        <option
+                                            key={currency}
+                                            value={currency}
+                                        >
+                                            {currency}
+                                        </option>
+                                    )))}
+                                </InputField>
+                            </label>
+                        </p>
+                        <Result result={result} />
+                        <Information>
+                            * Pola obowiązkowe.<br />Przeliczono według kursu walut NBP z dnia:
+                            04.11.2022 r.
+                        </Information>
+                        <CalculateButton>Przelicz</CalculateButton>
+                    </>
+                )}
             </Fieldset>
         </StyledForm>
     )
